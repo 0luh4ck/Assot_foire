@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvre la Blockchain - Quiz Interactif</title>
+    <link rel="stylesheet" href="chic.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Écran d'accueil -->
+        <div id="welcome-screen" class="screen active">
+            <div class="content-box">
+                <div class="logo-container">
+                    <img src="logo.png" alt="EPITECH Blockchain Club" class="logo">
+                </div>
+                <div class="header">
+                    <h1>EPITECH BLOCKCHAIN CLUB</h1>
+                    <p class="subtitle">Découvre la Blockchain Autrement</p>
+                </div>
+                
+                <div class="info-box">
+                    <p class="tagline">Apprendre • Construire • Innover</p>
+                    <p class="description">Regarde la vidéo, teste tes connaissances et gagne un sticker !</p>
+                </div>
+
+                <button id="start-btn" class="btn btn-primary">
+                    <span class="icon">▶</span>
+                    Commencer l'aventure
+                </button>
+            </div>
+        </div>
+
+        <!-- Écran vidéo -->
+        <div id="video-screen" class="screen">
+            <div class="content-box">
+                <h2>📺 Comprendre la Blockchain en quelques minutes</h2>
+                
+                <div class="video-container">
+                    <iframe 
+                        id="youtube-video"
+                        src="https://www.youtube.com/embed/SSo_EIwHSd4"
+                        title="Blockchain Explained" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <p class="video-note">Prends le temps de bien regarder la vidéo avant de passer au quiz ! 🎯</p>
+
+                <button id="quiz-btn" class="btn btn-success">
+                    Passer au Quiz
+                    <span class="icon">🏆</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Écran quiz -->
+        <div id="quiz-screen" class="screen">
+            <div class="content-box">
+                <div class="quiz-header">
+                    <div class="progress-info">
+                        <span id="question-counter">Question 1 / 5</span>
+                        <span id="score-display">Score: 0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <h3 id="question-text" class="question-text"></h3>
+
+                <div id="options-container" class="options-container"></div>
+            </div>
+        </div>
+
+        <!-- Écran résultats -->
+        <div id="results-screen" class="screen">
+            <div class="content-box results-content">
+                <div class="trophy-icon">🏆</div>
+                <h2>Quiz terminé !</h2>
+
+                <div class="score-box">
+                    <p id="final-score" class="final-score">0 / 5</p>
+                    <p id="result-message" class="result-message"></p>
+                </div>
+
+                <div class="sticker-box">
+                    <p class="sticker-title">🎁 Viens récupérer ton sticker au stand !</p>
+                    <p class="sticker-text">Rejoins notre association pour approfondir tes connaissances</p>
+                </div>
+
+                <button id="restart-btn" class="btn btn-primary">
+                    <span class="icon">🔄</span>
+                    Recommencer
+                </button>
+
+                <div id="answers-grid" class="answers-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
