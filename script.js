@@ -264,6 +264,15 @@ function showResults() {
     }
     
     resultMessage.textContent = message;
+
+    // Afficher la box sticker seulement si score > 50%
+
+    const stickerBox = document.getElementById('sticker-box');
+    if (percentage > 50) {
+        stickerBox.style.display = 'block';
+    } else {
+        stickerBox.style.display = 'none';
+    }
     
     // Afficher les réponses correctes/incorrectes
     answersGrid.innerHTML = '';
