@@ -330,7 +330,7 @@ const answersGrid = document.getElementById('answers-grid');
 // Fonction pour sélectionner 5 questions aléatoires
 function selectRandomQuestions() {
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 5);
+    return shuffled.slice(0, 7);
 }
 
 // Navigation entre écrans
