@@ -297,8 +297,88 @@ const allQuestions = [
             "La blockchain est une mode passagère"
         ],
         correct: 2
+    },
+    {
+        q: "Si vous achetez une action Apple en Bourse, que possédez-vous réellement ?",
+        options: [
+            "Un téléphone gratuit par an",
+            "Une fraction du capital et de la propriété de l'entreprise",
+            "Une dette que l'entreprise doit vous rembourser"
+        ],
+        correct: 1
+    },
+    {
+        q: "Que signifie l'expression « Le marché tourne 24h/24 et 7j/7 » ?",
+        options: [
+            "C'est le fonctionnement classique des Bourses traditionnelles (Wall Street, Paris)",
+            "C'est une spécificité des marchés cryptos et décentralisés",
+            "Les traders ne dorment jamais"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qu'est-ce que la FOMO en psychologie des marchés ?",
+        options: [
+            "La peur de rater une opportunité financière (Fear Of Missing Out)",
+            "Une taxe boursière internationale",
+            "Un indicateur technique de volatilité"
+        ],
+        correct: 0
+    },
+    {
+        q: "Quelle est la différence entre le marché primaire et le marché secondaire ?",
+        options: [
+            "Le primaire est réservé aux banques, le secondaire aux particuliers",
+            "Sur le primaire, les titres sont émis pour la 1ère fois (IPO) ; sur le secondaire, les investisseurs les échangent entre eux",
+            "Le marché primaire concerne uniquement l'or et le pétrole"
+        ],
+        correct: 1
+    },
+    {
+        q: "En analyse technique, que cherche-t-on à mesurer avec le RSI ou le MACD ?",
+        options: [
+            "Les bénéfices futurs d'une entreprise",
+            "Le momentum et la force de la tendance des prix",
+            "Le montant exact des frais de courtage"
+        ],
+        correct: 1
+    },
+    {
+        q: "Quelle est la règle d'or de la gestion du risque (Risk Management) pour un trader averti ?",
+        options: [
+            "Tout miser sur un seul actif pour maximiser les gains (All-in)",
+            "Ne jamais risquer plus de 1 % à 2 % de son capital par transaction",
+            "Vendre uniquement quand le prix atteint zéro"
+        ],
+        correct: 1
+    },
+    {
+        q: "En Bourse classique, un règlement d'achat d'action prend généralement « T+2 » (2 jours). Comment la blockchain améliore-t-elle cela ?",
+        options: [
+            "Elle le réduit à 1 jour ouvré",
+            "Elle permet un règlement-livraison instantané sans risque de contrepartie",
+            "Elle annule la transaction après 2 heures"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qu'est-ce que la tokenisation d'actifs du monde réel (RWA / Real World Assets) ?",
+        options: [
+            "Remplacer les banquiers par des robots",
+            "Créer un jeton numérique représentant un droit de propriété sur une action, une obligation ou un bien immobilier",
+            "Imprimer des jetons en plastique pour voter aux assemblées générales"
+        ],
+        correct: 1
+    },
+    {
+        q: "Quel est le rôle d'un Smart Contract dans la finance décentralisée (DeFi) ?",
+        options: [
+            "Rédiger les contrats de travail du club",
+            "Exécuter automatiquement des règles logiques sans passer par un intermédiaire",
+            "Empêcher les cours des crypto-monnaies de baisser"
+        ],
+        correct: 1
     }
-
 ];
 
 // Variables globales
@@ -327,10 +407,17 @@ const finalScore = document.getElementById('final-score');
 const resultMessage = document.getElementById('result-message');
 const answersGrid = document.getElementById('answers-grid');
 
-// Fonction pour sélectionner 5 questions aléatoires
+// Nombre de questions par quiz
+const QUESTIONS_PER_QUIZ = 10;
+
+// Sélectionne 10 questions différentes, tirées aléatoirement (mélange Fisher-Yates)
 function selectRandomQuestions() {
-    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 7);
+    const pool = [...allQuestions];
+    for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    return pool.slice(0, QUESTIONS_PER_QUIZ);
 }
 
 // Navigation entre écrans
